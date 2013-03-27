@@ -1,0 +1,16 @@
+post_install() {
+  touch "/etc/X11/xorg.conf.intel"
+  touch "/etc/X11/xorg.conf.catalyst"
+  echo "WARNING"
+  echo "/etc/X11/xorg.conf gets overwritten at boot"
+  echo "If you need a non-empty xorg.conf, edit /etc/X11/xorg.conf.intel and /etc/X11/xorg.conf.catalyst"
+  
+  if [ -e /etc/X11/xorg.conf ]; then
+    cp /etc/X11/xorg.conf /etc/X11/xorg.conf.catalyst-intel-select
+    echo "Your /etc/X11/xorg.conf has been backed up to /etc/X11/xorg.conf.catalyst-intel-select"
+  fi
+  
+  echo "Your system will use the Catalyst configuration when KMS is disabled and the Intel configuration when KMS is enabled. On recent kernels, KMS is enabled by default and it can be disabled with the option nomodeset."
+  
+  systemctl enable catalyst-intel-select
+}

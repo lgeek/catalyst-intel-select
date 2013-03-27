@@ -1,0 +1,12 @@
+[Unit]
+Description=Switches between Fglrx and Intel Xorg drivers
+Before=display-manager.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/catalyst-intel-select.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=graphical.target
+
