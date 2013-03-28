@@ -1,7 +1,7 @@
 # Maintainer: <cosmin at linux-geek d0t org>
 
 pkgname=catalyst-intel-select
-pkgver=1
+pkgver=2
 pkgrel=1
 pkgdesc="Systemd service which automatically switches between Intel and AMD graphics drivers"
 url="http://github.com/lgeek/catalyst-intel-select"
